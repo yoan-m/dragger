@@ -39,12 +39,33 @@ void setup()
   ssd1306_fillScreen(0x00);
   ssd1306_setFixedFont(ssd1306xled_font6x8);
   ssd1306_printFixedN (0, 10, "SDIS45", STYLE_BOLD, 1);
-  ssd1306_printFixedN (20, 40, "Dragger remote", STYLE_NORMAL, 0);
-  ssd1306_printFixedN (50, 60, "Yoan MURCIANO", STYLE_ITALIC, 0);
+  ssd1306_printFixedN (20, 40, "Drager remote", STYLE_NORMAL, 0);
+  ssd1306_printFixedN (50, 60, "Yoan MURCIANO", STYLE_NORMAL, 0);
   delay(5000);
   ssd1306_setFixedFont(comic_sans_font24x32_123);
   ssd1306_clearScreen();
-
+  ledState = HIGH;
+  tone(buzzer, 4978);
+  digitalWrite(led, ledState);
+  digitalWrite(led2, ledState);
+  delay(100);
+  ledState = LOW;
+  noTone(buzzer);
+  digitalWrite(led, ledState);
+  digitalWrite(led2, ledState);
+  digitalWrite(moteur, ledState);
+  delay(100);
+  ledState = HIGH;
+  tone(buzzer, 4978);
+  digitalWrite(led, ledState);
+  digitalWrite(led2, ledState);
+  digitalWrite(moteur, ledState);
+  delay(100);
+  ledState = LOW;
+  noTone(buzzer);
+  digitalWrite(led, ledState);
+  digitalWrite(led2, ledState);
+  digitalWrite(moteur, ledState);
 }
 
 void loop()
@@ -71,6 +92,8 @@ void loop()
         digitalWrite(led, ledState);
         digitalWrite(led2, ledState);
         digitalWrite(moteur, ledState);
+        
+        ssd1306_printFixedN (0, 35, " ", STYLE_NORMAL, 0);
       }
     } else {
       Serial.println(text);
@@ -103,9 +126,13 @@ void loop()
       if (ledState == LOW) {
         ledState = HIGH;
         tone(buzzer, 4978);
+        ssd1306_printFixedN (0, 35, ".", STYLE_NORMAL, 0);
       } else {
         ledState = LOW;
         noTone(buzzer);
+        if (alarme==1) {
+        ssd1306_printFixedN (0, 35, " ", STYLE_NORMAL, 0);
+        }
       }
 
       // set the LED with the ledState of the variable:
