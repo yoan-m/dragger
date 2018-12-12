@@ -31,8 +31,8 @@ void setup()
   ssd1306_fillScreen(0x00);
   ssd1306_setFixedFont(ssd1306xled_font6x8);
   ssd1306_printFixedN (0, 10, "SDIS45", STYLE_BOLD, 1);
-  ssd1306_printFixedN (20, 40, "Dragger remote", STYLE_NORMAL, 0);
-  ssd1306_printFixedN (50, 60, "Yoan MURCIANO", STYLE_ITALIC, 0);
+  ssd1306_printFixedN (20, 40, "Drager remote", STYLE_NORMAL, 0);
+  ssd1306_printFixedN (50, 60, "Yoan MURCIANO", STYLE_NORMAL, 0);
   delay(5000);
   ssd1306_setFixedFont(comic_sans_font24x32_123);
   ssd1306_clearScreen();
