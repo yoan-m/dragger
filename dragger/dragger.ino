@@ -154,7 +154,7 @@ void loop()
     else
     sprintf(myConcatenation,"%i%s",valPot,myStr);
     
-    ssd1306_printFixedN (12, 20, myConcatenation, STYLE_NORMAL, 0);
+    ssd1306_printFixedN (12, 7, myConcatenation, STYLE_NORMAL, 0);
                         // wait for a second
     oldValPot = valPot;
     delay(10);
