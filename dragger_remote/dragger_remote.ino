@@ -14,12 +14,12 @@ int potPin = 2;
 int led = 7;
 void setup()
 {
- // Serial.begin(9600);
+  Serial.begin(9600);
   /* Do not init Wire library for Attiny controllers */
 
-  ssd1306_128x64_i2c_init();
+ /* ssd1306_128x64_i2c_init();
   ssd1306_fillScreen(0x00);
-  pinMode(button_alarme_0, INPUT_PULLUP);
+  */pinMode(button_alarme_0, INPUT_PULLUP);
   pinMode(button_alarme_1, INPUT_PULLUP);
   pinMode(button_alarme_2, INPUT_PULLUP);
   pinMode(led, OUTPUT);
@@ -55,7 +55,7 @@ void loop()
     char text[10];
     itoa(valPot, text, 10);
    
-    //Serial.println(text);
+    Serial.println(text);
     radio.write(&text, sizeof(text));
 //    ssd1306_fillScreen(0x00);
     char myConcatenation[5];
